@@ -43,6 +43,7 @@
       }
       button {
         padding: 12px 24px;
+        margin: 4 4 4 4;
         border: none;
         border-radius: 5px;
         background-color: #4CAF50;
@@ -64,8 +65,13 @@
     <div class="container">
       <h1>Morseova abeceda</h1>
       <p>Zadejte znaky Morseovy abecedy (. nebo -) oddělené mezerou.</p>
-      <input type="text" id="morseInput" placeholder="Např. .- .- -... -.-.">
-      <br>
+      <input type="text" id="morseInput" placeholder="Např. .- .- -... -.-.">  
+      <div id="button_container">
+        <button onclick="addDot()">Přidat .</button>
+        <button onclick="addDash()">Přidat -</button>
+        <button onclick="addSpace()">Přidat mezeru</button>
+        <button onclick="deleteLast()">Smazat poslední</button>
+      </div>
       <button onclick="convertMorse()">Převést</button>
       <div class="morse-alphabet">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/International_Morse_Code.svg/800px-International_Morse_Code.svg.png" alt="Morseova abeceda">
@@ -108,6 +114,27 @@
         alert("Zadávejte platné znaky Morseovy abecedy: .-");
       }
     }
+
+    function addDot() {
+        const morseInput = document.getElementById('morseInput');
+        morseInput.value = morseInput.value + ".";
+    }
+
+    function addDash() {
+        const morseInput = document.getElementById('morseInput');
+        morseInput.value = morseInput.value + "-";
+    }
+
+    function addSpace() {
+        const morseInput = document.getElementById('morseInput');
+        morseInput.value = morseInput.value + " ";
+    }
+
+    function deleteLast() {
+        const morseInput = document.getElementById('morseInput');
+        morseInput.value = morseInput.value.slice(0,-1);
+    }
+
 </script>
 </body>
 </html>
